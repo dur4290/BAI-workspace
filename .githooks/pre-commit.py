@@ -41,39 +41,53 @@ def check_env_files():
 
 def check_api_patterns():
     diff = run("git diff --cached -U0")
-    # 추가된 줄만 검사 (주석 줄 제외)
-    added = [
-        line for line in diff.splitlines()
-        if line.startswith("+") and not line.startswith("+++")
-    ]
+    added = []
+    current_file = None
+    for line in diff.splitlines():
+        if line.startswith("+++ b/"):
+            current_file = line[6:]
+            continue
+        if line.startswith("+++ "):
+            current_file = None
+            continue
+        if line.startswith("+") and not line.startswith("+++"):
+            added.append((current_file or "(unknown)", line[1:]))
 
     patterns = [
-        (r"sk-ant-api[0-9]",                "Anthropic API 키"),
-        (r"sk-proj-[A-Za-z0-9]",            "Anthropic 프로젝트 API 키"),
-        (r"ANTHROPIC_API_KEY\s*=\s*['\"]sk", "Anthropic API 키 할당"),
-        (r"openai\.api_key\s*=\s*['\"]sk",   "OpenAI API 키"),
-        (r"sk-[A-Za-z0-9]{48}",             "OpenAI 형식 API 키"),
-        (r"AIza[A-Za-z0-9_-]{35}",          "Google API 키"),
-        (r"password\s*=\s*['\"][^'\"]{6}",   "비밀번호 하드코딩"),
-        (r"secret\s*=\s*['\"][^'\"]{8}",     "시크릿 하드코딩"),
+        (r"sk-ant-[A-Za-z0-9_-]{10,}", "Anthropic API 키"),
+        (r"sk-proj-[A-Za-z0-9_-]{10,}", "OpenAI 프로젝트 API 키"),
+        (r"sk-[A-Za-z0-9_-]{32,}", "OpenAI 형식 API 키"),
+        (r"AIza[A-Za-z0-9_-]{35}", "Google API 키"),
+        (r"(OPENAI|ANTHROPIC|GEMINI)_API_KEY\s*=\s*['\"]?[^'\"\s#]+", "API 키 환경변수 할당"),
+        (r"openai\.api_key\s*=\s*['\"][^'\"]+", "OpenAI API 키 직접 할당"),
+        (r"(password|secret|token)\s*=\s*['\"][^'\"]{6,}", "민감정보 하드코딩"),
     ]
 
+    findings = []
     for pattern, label in patterns:
         hits = [
-            line for line in added
-            if re.search(pattern, line, re.IGNORECASE)
-            and not line.lstrip("+").lstrip().startswith("#")
+            file_path for file_path, line in added
+            if file_path != ".githooks/pre-commit.py"
+            and re.search(pattern, line, re.IGNORECASE)
+            and not line.lstrip().startswith("#")
         ]
         if hits:
-            print()
-            print(f"[위험] {label} 가 발견됐어요!")
-            print()
-            for h in hits[:5]:
-                print(f"   {h}")
-            print()
-            print("[차단] 커밋이 차단됐습니다.")
-            print("[도움말] API 키는 .env 파일에 저장하고 os.environ.get()으로 읽으세요.")
-            sys.exit(1)
+            findings.append((label, sorted(set(hits))))
+
+    if findings:
+        print()
+        print("[위험] 민감정보로 보이는 값이 발견됐어요!")
+        print()
+        for label, files in findings:
+            print(f"   종류: {label}")
+            for file_path in files[:5]:
+                print(f"      파일: {file_path}")
+            if len(files) > 5:
+                print(f"      외 {len(files) - 5}개 파일")
+        print()
+        print("[차단] 커밋이 차단됐습니다.")
+        print("[도움말] 실제 값은 출력하지 않았어요. 해당 파일에서 값을 제거하거나 .env로 옮기세요.")
+        sys.exit(1)
 
 
 print("[확인] 보안 검사 중...")

@@ -1,0 +1,6 @@
+name,type,has_bus,after_school_until,monthly_cost_krw,travel_time_min
+Sunny Kindergarten,private,yes,18:00,230000,12
+River Public Kindergarten,public,no,17:00,50000,9
+Hill Learning Kindergarten,private,yes,19:00,310000,18
+Green Class Kindergarten,private,no,18:30,180000,15
+Central Public Kindergarten,public,yes,17:30,70000,20
