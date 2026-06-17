@@ -25,6 +25,10 @@
 | `.codex/rules/` | Codex가 참고하는 세부 규칙 |
 | `.codex/references/` | 작업 README와 품질 기준 |
 
+## Python
+
+Python은 워크스페이스 폴더 안에 없어도 됩니다. Python 실행이 필요하면 `.codex/rules/python.md`를 먼저 따르고, 필요 시 `scripts/find-python.ps1`로 Python Launcher, PATH, conda, Anaconda/Miniconda의 일반 설치 경로를 확인합니다.
+
 ## 대화 기준
 
 - 한국어로 답합니다.

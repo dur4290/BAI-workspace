@@ -18,10 +18,12 @@
 가능한 범위에서 Codex가 직접 확인합니다.
 
 - Git 저장소 여부
-- Python 실행 가능 여부
+- Python 실행 가능 여부 (`.codex/rules/python.md` 기준)
 - `work/`, `scripts/`, `notes/` 폴더 존재 여부
 
 사용자에게 터미널 명령을 먼저 시키지 않습니다.
+
+Python 확인 시 `python --version` 하나만 실패했다고 Python이 없다고 말하지 않습니다. 필요하면 `scripts/find-python.ps1`을 실행해 Anaconda, Python Launcher, 일반 Python 설치 경로를 함께 확인합니다.
 
 ### 3단계: 짧은 질문
 
