@@ -1,6 +1,6 @@
 # /build — 계획하고 바로 만들기
 
-아이디어를 작은 작업 카드로 정리한 뒤, `work/작업이름/`에 첫 실행 가능한 결과물까지 만듭니다.
+아이디어를 작은 작업 카드로 정리한 뒤, 워크스페이스 루트의 `work/작업이름/`에 첫 실행 가능한 결과물까지 만듭니다.
 
 ## 사용법
 
@@ -23,6 +23,8 @@
 ### 1단계: 기준 읽기
 
 먼저 `AGENTS.md`, `.codex/rules/build-workflow.md`, `.codex/references/work-readme-guide.md`, `.codex/references/work-quality-checklist.md`를 읽습니다.
+
+현재 위치가 워크스페이스 루트인지 확인합니다. 루트는 `AGENTS.md`, `README.md`, `.codex/`, `work/`가 함께 있는 폴더입니다. 현재 폴더가 `work/` 안쪽이거나 다른 하위 폴더라면 새 `work/`를 만들지 말고, 기존 루트의 `work/`를 기준으로 작업합니다.
 
 ### 2단계: 작업 카드 만들기
 
@@ -51,7 +53,9 @@
 
 ### 4단계: 작업 폴더와 README 만들기
 
-`work/작업이름/` 아래에 `README.md`, `src/`, `input/`, `output/`, `notes/`를 만듭니다.
+워크스페이스 루트의 `work/작업이름/` 아래에 `README.md`, `src/`, `input/`, `output/`, `notes/`를 만듭니다.
+
+`work/_examples/`는 참고 예시 전용입니다. 새 사용자 작업은 `_examples/` 안에 만들지 않습니다.
 
 `README.md`에는 작업 카드, 만들 기능 체크리스트, 실행 방법, 확인 방법, 다음에 Codex에게 요청할 말을 포함합니다.
 

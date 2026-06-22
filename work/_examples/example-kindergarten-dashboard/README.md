@@ -28,7 +28,7 @@
 
 ## 실행 방법
 
-현재 폴더가 `work/example-kindergarten-dashboard/`라면:
+현재 폴더가 `work/_examples/example-kindergarten-dashboard/`라면:
 
 ```powershell
 python src/build_dashboard.py
@@ -37,7 +37,7 @@ python src/build_dashboard.py
 워크스페이스 루트라면:
 
 ```powershell
-python work/example-kindergarten-dashboard/src/build_dashboard.py
+python work/_examples/example-kindergarten-dashboard/src/build_dashboard.py
 ```
 
 ## 확인 방법
@@ -49,7 +49,7 @@ python work/example-kindergarten-dashboard/src/build_dashboard.py
 ## Codex에게 다음에 요청할 말
 
 ```text
-work/example-kindergarten-dashboard/output/processed-kindergartens.csv와 dashboard.html을 보고, 부모가 이해하기 쉬운 지표 설명과 개선할 화면 구성을 제안해줘.
+work/_examples/example-kindergarten-dashboard/output/processed-kindergartens.csv와 dashboard.html을 보고, 부모가 이해하기 쉬운 지표 설명과 개선할 화면 구성을 제안해줘.
 ```
 
 ## 메모

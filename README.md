@@ -54,7 +54,7 @@ VSCode에서 이 폴더를 열고 Codex에게 이렇게 말하세요.
 ```text
 아이디어 메모
 -> /build로 작업 카드 만들기
--> work/에 작업 폴더와 첫 결과물 만들기
+-> 기존 work/에 작업 폴더와 첫 결과물 만들기
 -> 실행하고 확인하기
 -> 기록하기
 -> 저장하기
@@ -96,9 +96,11 @@ vibe-workspace/
 ├── AGENTS.md                 # Codex 작업 규칙
 ├── recipes.md                # 바로 써먹는 작업 예시
 ├── work/                     # 진행 중인 작업
-│   ├── example-contest-filter/       # 참고 예시: 공모전 수집·필터·검수 파이프라인
-│   ├── example-kindergarten-dashboard/ # 참고 예시: 데이터 분석 -> HTML 대시보드
-│   └── example-lumoa-html-cards/     # 참고 예시: 데이터 결과 -> 카드 UI
+│   ├── _examples/            # 참고 예시 전용
+│   │   ├── example-contest-filter/          # 공모전 수집·필터·검수 파이프라인
+│   │   ├── example-kindergarten-dashboard/  # 데이터 분석 -> HTML 대시보드
+│   │   └── example-lumoa-html-cards/        # 데이터 결과 -> 카드 UI
+│   └── your-project/         # 새 작업은 work/ 바로 아래에 생성
 ├── scripts/
 │   ├── setup.ps1             # 초기 설정 (Windows)
 │   ├── setup.sh              # 초기 설정 (Mac/Linux)
@@ -155,6 +157,8 @@ work/작업이름/
 ├── output/
 └── notes/
 ```
+
+현재 위치가 하위 폴더여도 새 `work/`를 만들지 말고, 워크스페이스 루트에 이미 있는 `work/`를 사용합니다. `work/_examples/`는 참고용이라 새 작업을 넣지 않습니다.
 
 처음부터 배포, 로그인, 외부 API를 기본으로 잡지 않습니다. 먼저 로컬 파일, Markdown, Python, CSV, HTML처럼 바로 확인 가능한 결과물로 시작합니다.
 
