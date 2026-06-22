@@ -1,5 +1,42 @@
 # scripts
 
-완성된 단일 자동화 스크립트가 저장되는 폴더입니다.
+완성된 단일 자동화 스크립트와 워크스페이스 초기 설정 스크립트가 저장되는 폴더입니다.
 
-예를 들어 파일 정리 자동화는 `organize.py` 같은 이름으로 이곳에 저장합니다.
+## 초기 설정 스크립트
+
+처음 한 번만 실행합니다. Git 저장소 초기화와 커밋 보안 훅을 등록합니다.
+
+| 파일 | 대상 | 실행 방법 |
+|---|---|---|
+| `setup.ps1` | Windows | PowerShell에서 `.\scripts\setup.ps1` |
+| `setup.sh` | Mac / Linux | 터미널에서 `bash scripts/setup.sh` |
+
+Windows에서 `이 시스템에서 스크립트를 실행할 수 없습니다` 오류가 뜨면:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+## 유틸리티
+
+| 파일 | 설명 |
+|---|---|
+| `find-python.ps1` | Windows에서 Python 설치 경로를 자동으로 탐색하고 `.codex/local-python.json`에 저장 |
+
+## 바로 쓰는 템플릿
+
+`/start`가 처음 추천하는 작은 작업 3개입니다. 그대로 실행하거나 복사해서 변형합니다.
+
+| 파일 | 용도 | 기본 입력 | 결과 |
+|---|---|---|---|
+| `download-organize.py` | 다운로드 폴더 파일을 종류별로 분류 | `~/Downloads` | 분류된 하위 폴더 생성 |
+| `notes-to-summary.py` | 여러 마크다운 메모를 하나로 합침 | `notes/ideas/` | `output/summary.md` |
+| `file-rename-dated.py` | 파일명 앞에 오늘 날짜 일괄 추가 | 현재 폴더 | 같은 폴더에서 in-place |
+
+실행 방법은 각 파일 상단 docstring을 참고합니다.
+
+## 내 자동화 스크립트
+
+여러 파일로 된 작업은 `work/` 폴더에, 한 파일로 완성되는 스크립트는 이 폴더에 저장합니다.
+
+예: `organize-downloads.py`, `rename-files.py`

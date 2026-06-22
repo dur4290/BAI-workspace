@@ -2,90 +2,58 @@
 
 ## 한 줄 목표
 
-우리 동네 유치원 정보를 작은 CSV로 정리하고, 조건별로 비교할 수 있는 첫 화면을 만든다.
+작은 유치원 샘플 CSV를 전처리하고 파생지표를 만든 뒤, HTML 대시보드로 확인합니다.
 
-## 왜 만들까?
+## 작업 카드
 
-학부모가 유치원 정보를 하나씩 찾아보면 시간이 오래 걸립니다. 처음 버전은 실제 API나 지도 연동 없이, 작은 샘플 CSV를 읽어서 비교표를 만드는 데 집중합니다.
+목표: 데이터 → 분석 → 화면으로 이어지는 개인 학습용 대시보드 흐름을 만든다.
 
-이 예시는 큰 아이디어를 바로 완성형 앱으로 만들지 않고, 눈으로 확인 가능한 작은 결과물로 줄이는 방법을 보여줍니다.
+입력: `input/sample-kindergartens.csv`
 
-## 최종 결과물
+출력: `output/processed-kindergartens.csv`, `output/analysis-summary.md`, `output/dashboard.html`
 
-- 유치원 5곳을 비교하는 간단한 HTML 표
-- 사용자가 볼 수 있는 항목:
-  - 설립유형
-  - 통학차량 여부
-  - 방과후 종료 시간
-  - 월 비용
-  - 집에서 걸리는 예상 시간
+성공 기준: Python 표준 라이브러리만으로 샘플 데이터를 읽고, 지표가 계산된 CSV와 바로 열 수 있는 HTML이 생성된다.
 
-## 입력
-
-`input/sample-kindergartens.csv`
-
-샘플 데이터만 사용합니다. 실제 학생 이름, 주소, API 키, 개인 정보는 넣지 않습니다.
-
-## 출력
-
-`output/kindergarten-summary.html`
-
-브라우저에서 열었을 때 유치원 목록과 비교 기준이 보이면 됩니다.
-
-## 필요한 도구
-
-- Python 3
-- 웹 브라우저
-
-외부 API, 로그인, 배포는 첫 버전에 넣지 않습니다.
-
-## 폴더 구조
-
-```text
-example-kindergarten-dashboard/
-├── README.md
-├── src/
-├── input/
-│   └── sample-kindergartens.csv
-├── output/
-└── notes/
-```
+오늘 만들 최소 버전: 정원 대비 현원, 교사 1인당 원아 수, 돌봄 시간, 비용, 통학차량 여부를 한 화면에서 비교한다.
 
 ## 만들 기능
 
-- [ ] CSV 파일 읽기
-- [ ] 비용이 낮은 순서로 정렬하기
-- [ ] 통학차량이 있는 유치원 표시하기
-- [ ] HTML 표 만들기
-- [ ] 결과 파일을 브라우저에서 확인하기
+- [x] 샘플 CSV 읽기
+- [x] 숫자 컬럼 정리와 파생지표 계산
+- [x] 추천 점수와 주의 메모 생성
+- [x] 처리된 CSV 저장
+- [x] HTML 대시보드 생성
+- [ ] 실제 데이터 컬럼 매핑 추가
+- [ ] 차트나 지도는 필요할 때 별도 단계로 추가
 
-## 첫 번째 작업
+## 실행 방법
 
-`src/make_summary.py`를 만들고 `input/sample-kindergartens.csv`를 읽어서 유치원 이름과 월 비용만 출력합니다.
+현재 폴더가 `work/example-kindergarten-dashboard/`라면:
 
-처음부터 예쁜 화면을 만들지 말고, CSV를 제대로 읽는지 먼저 확인합니다.
+```powershell
+python src/build_dashboard.py
+```
 
-## Codex에게 다음에 요청할 말
+워크스페이스 루트라면:
 
-```text
-이 예제 프로젝트의 README를 읽고, 첫 번째 작업인 CSV 읽기 스크립트를 만들어줘.
+```powershell
+python work/example-kindergarten-dashboard/src/build_dashboard.py
 ```
 
 ## 확인 방법
 
-1. Python 스크립트를 실행한다.
-2. 터미널에 유치원 이름과 월 비용이 출력된다.
-3. 다음 단계에서 `output/kindergarten-summary.html`이 생성된다.
-4. HTML 파일을 브라우저에서 열었을 때 표가 보이면 성공이다.
+- `output/dashboard.html`을 브라우저로 열어 카드와 비교 표가 보이는지 확인합니다.
+- `output/processed-kindergartens.csv`에서 `occupancy_rate`, `students_per_teacher`, `study_score` 컬럼이 생겼는지 확인합니다.
+- `output/analysis-summary.md`에서 상위 후보와 주의 메모를 읽습니다.
 
-## 원본 아이디어
+## Codex에게 다음에 요청할 말
 
-이 예시는 더 큰 프로젝트인 "우리 동네 유치원, 데이터로 먼저 보기"를 학생용 첫 버전으로 줄인 것입니다.
-
-원본 프로젝트에는 실제 공공데이터, 주소 검색, 차량 이동 시간, 대시보드가 포함되지만, 이 예제에서는 학습을 위해 작은 CSV와 HTML 출력만 사용합니다.
+```text
+work/example-kindergarten-dashboard/output/processed-kindergartens.csv와 dashboard.html을 보고, 부모가 이해하기 쉬운 지표 설명과 개선할 화면 구성을 제안해줘.
+```
 
 ## 메모
 
-- 실제 API 키는 사용하지 않습니다.
-- 실제 주소나 개인 정보는 넣지 않습니다.
-- 기능을 추가하기 전에 입력, 출력, 확인 방법을 먼저 정합니다.
+- 개인정보, 실제 주소, 외부 지도 호출은 포함하지 않습니다.
+- 원본 프로젝트의 핵심만 학생 배포용으로 줄였습니다.
+- 표준 라이브러리만 사용하므로 처음 Python 연습용으로도 적당합니다.

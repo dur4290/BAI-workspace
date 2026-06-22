@@ -17,7 +17,10 @@
 
 가능한 범위에서 Codex가 직접 확인합니다.
 
-- Git 저장소 여부
+- Git 저장소 여부 (`git rev-parse --is-inside-work-tree`)
+  - Git 저장소가 아니거나 `.githooks`가 등록되지 않은 경우, 초기 설정 스크립트 실행을 안내합니다.
+    - Windows: `.\scripts\setup.ps1`
+    - Mac/Linux: `bash scripts/setup.sh`
 - Python 실행 가능 여부 (`.codex/rules/python.md` 기준)
 - `work/`, `scripts/`, `notes/` 폴더 존재 여부
 
@@ -59,11 +62,11 @@ Q4/4 — 지금 쓸 수 있는 시간은 어느 정도인가요?
 
 `recipes.md`와 답변을 참고해 바로 확인 가능한 작업 1개를 제안합니다.
 
-답변이 막연하면 아래 3개 중 하나를 추천합니다.
+답변이 막연하면 아래 3개 중 하나를 추천합니다. 사전 구현 스크립트는 `scripts/` 안에 있습니다.
 
-1. `file-list-csv`: 폴더 안 파일 목록을 CSV로 저장하기
+1. `download-organize`: 다운로드 폴더 파일을 종류(PDF·이미지·ZIP 등)별로 자동 분류
 2. `notes-to-summary`: 여러 메모 파일을 하나의 정리 문서로 합치기
-3. `csv-to-html-table`: CSV 결과를 브라우저에서 볼 수 있는 HTML 표로 만들기
+3. `file-rename-dated`: 폴더 안 파일 이름 앞에 오늘 날짜 일괄 붙이기
 
 제안 형식:
 
@@ -75,7 +78,7 @@ Q4/4 — 지금 쓸 수 있는 시간은 어느 정도인가요?
 첫 결과물:
 예상 시간:
 
-바로 `/build`로 작업 폴더를 만들까요?
+바로 `/build`로 작업 카드와 첫 결과물까지 만들까요?
 ```
 
 동의하면 `.codex/commands/build.md`를 읽고 이어서 실행합니다.

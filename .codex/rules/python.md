@@ -16,6 +16,8 @@ Python이 필요하면 아래 순서로 확인합니다.
 4. `where python` 확인
 5. `where conda` 확인 후 conda 설치 폴더의 `python.exe` 확인
 6. 흔한 설치 경로 확인
+
+   Windows:
    - `C:\ProgramData\anaconda3\python.exe`
    - `%USERPROFILE%\anaconda3\python.exe`
    - `%USERPROFILE%\miniconda3\python.exe`
@@ -23,6 +25,13 @@ Python이 필요하면 아래 순서로 확인합니다.
    - `%LOCALAPPDATA%\miniconda3\python.exe`
    - `%LOCALAPPDATA%\Programs\Python\Python*\python.exe`
    - `%LOCALAPPDATA%\Microsoft\WindowsApps\python.exe`
+
+   Mac / Linux:
+   - `~/anaconda3/bin/python`
+   - `~/miniconda3/bin/python`
+   - `/opt/homebrew/bin/python3` (Apple Silicon Mac)
+   - `/usr/local/bin/python3` (Intel Mac, Homebrew)
+   - `/usr/bin/python3` (시스템 기본)
 
 ## 찾았을 때
 
