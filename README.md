@@ -79,12 +79,55 @@ VSCode에서 이 폴더를 열고 Codex에게 이렇게 말하세요.
 | `/review` | 공유/저장 전 완성도와 보안 점검 | 점검 결과 |
 | `/daily` | 오늘 한 일과 다음 액션 기록 | `notes/daily/` |
 | `/save` | 보안 확인 후 Git 저장 | Git |
+| `/goodbai` | Codex가 정리한 진행 보고를 BAI 피드에 전송 | BAI 피드 |
 
 헷갈릴 때는 명령어를 외우지 말고 이렇게 말해도 됩니다.
 
 ```text
 지금 이 아이디어를 작게 만들 수 있게 작업 카드와 첫 결과물까지 만들어줘.
 ```
+
+---
+
+## BAI 피드에 올리기
+
+`/goodbai`는 학생이 웹사이트 글쓰기 화면에 직접 들어가지 않아도, Codex가 오늘 진행 보고를 정리해 BAI 피드에 올리는 명령입니다.
+
+처음 한 번만 선생님에게 받은 BAI API key를 저장합니다.
+
+```powershell
+python scripts\bai_feed_config.py
+```
+
+설정할 때 물어보는 값:
+
+```text
+BAI feed name: 본인 이름
+BAI feed API key: 선생님에게 받은 API key
+```
+
+그다음부터는 Codex에게 이렇게 말하면 됩니다.
+
+```text
+/goodbai
+```
+
+Codex가 아래 세 가지를 물어봅니다.
+
+```text
+1. 오늘 한 일이나 나온 결과는 무엇인가요?
+2. 오늘 배운 것은 무엇인가요?
+3. 막힌 점이나 질문은 무엇인가요?
+```
+
+막힌 점이 없으면 `없음`이라고 답합니다. Codex는 태그와 산출물 링크를 함께 정리한 뒤, 전송 전 내용을 한 번 보여주고 확인을 받습니다.
+
+`/save`와 `/goodbai`는 서로 다른 명령입니다.
+
+- `/save`: 내 작업을 Git에 저장
+- `/goodbai`: BAI 피드에 진행 보고 전송
+
+둘 중 하나를 실행해도 다른 하나가 자동으로 실행되지는 않습니다.
 
 ---
 
@@ -104,6 +147,8 @@ vibe-workspace/
 ├── scripts/
 │   ├── setup.ps1             # 초기 설정 (Windows)
 │   ├── setup.sh              # 초기 설정 (Mac/Linux)
+│   ├── bai_feed_config.py    # BAI 피드 로컬 계정 설정
+│   ├── bai_feed_save.py      # BAI 피드 dry-run/전송
 │   └── find-python.ps1       # Python 경로 탐색
 ├── notes/
 │   ├── context/              # 작업 맥락
@@ -171,6 +216,7 @@ work/작업이름/
 - `.env` 파일은 Git에 올리지 않습니다.
 - API key, password, token 값은 문서에 쓰지 않습니다.
 - `/save`는 저장 전에 보안 패턴을 확인합니다.
+- `/goodbai`는 `.bai-feed.env` 또는 사용자 홈 설정을 읽지만 비밀값을 출력하지 않습니다.
 - 삭제, 대량 이동, Git push 같은 위험 작업은 먼저 확인을 받습니다.
 
 자세한 기준은 `.codex/rules/security.md`에 있습니다.

@@ -22,6 +22,18 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 | 파일 | 설명 |
 |---|---|
 | `find-python.ps1` | Windows에서 Python 설치 경로를 자동으로 탐색하고 `.codex/local-python.json`에 저장 |
+| `bai_feed_config.py` | `/goodbai`용 BAI 피드 API key를 로컬 설정 파일에 저장 |
+| `bai_feed_save.py` | `/goodbai` payload를 dry-run하거나 BAI 피드 API로 전송 |
+
+## BAI 피드 설정
+
+`/goodbai`를 쓰려면 학생이 처음 한 번만 선생님에게 받은 API key를 저장합니다.
+
+```powershell
+python scripts\bai_feed_config.py
+```
+
+저장된 `.bai-feed.env`는 Git에 올라가지 않습니다. 여러 워크스페이스를 쓰는 경우 워크스페이스의 `.bai-feed.env`가 사용자 홈의 기본 설정보다 우선합니다.
 
 ## 바로 쓰는 템플릿
 

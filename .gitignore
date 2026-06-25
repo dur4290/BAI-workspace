@@ -4,6 +4,7 @@
 .env
 .env.*
 !.env.example
+.bai-feed.env
 .env.local
 .env.production
 *.key
@@ -20,6 +21,7 @@ secrets.json
 .codex/local.*
 .codex/*.local.json
 .codex/local-python.json
+.codex/tmp/
 .python-path
 
 # 참고: .codex/config.toml 은 의도적으로 커밋합니다 (MCP 서버 등록만 담는 파일).

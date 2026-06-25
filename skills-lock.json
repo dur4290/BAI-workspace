@@ -24,6 +24,12 @@
       "sourceType": "workspace",
       "skillPath": "skills/xlsx/SKILL.md",
       "computedHash": "cb7fba2177d0d35d14b3244272b25d1b05246e99b3468a087fe06c84193dbd20"
+    },
+    "bai-feed-goodbai": {
+      "source": "local",
+      "sourceType": "workspace",
+      "skillPath": "skills/bai-feed-goodbai/SKILL.md",
+      "computedHash": "0a2849160ff0af7f1aee4d0ee5e7f0293cfa5ef48520451df0c7674393d1bba3"
     }
   }
 }
