@@ -16,8 +16,15 @@ Write-Host "Starting vibe-workspace setup." -ForegroundColor Cyan
 Write-Host ""
 
 # [1/2] Git 저장소 확인 및 초기화
-git rev-parse --is-inside-work-tree *> $null
-if ($LASTEXITCODE -ne 0) {
+$isGitRepository = $false
+try {
+    $gitCheck = git rev-parse --is-inside-work-tree 2>$null
+    $isGitRepository = ($LASTEXITCODE -eq 0 -and $gitCheck -eq "true")
+} catch {
+    $isGitRepository = $false
+}
+
+if (-not $isGitRepository) {
     Write-Host "[1/2] Initializing Git repository..." -ForegroundColor Yellow
     git init
     if ($LASTEXITCODE -ne 0) {
