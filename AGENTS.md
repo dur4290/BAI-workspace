@@ -10,7 +10,7 @@
 2. 무엇을 만들지 막막할 때 `recipes.md` — 바로 써먹는 작업 예시
 3. 코딩·저장·새 작업 폴더 생성 직전에 `.codex/rules/*.md`
 
-사용자가 처음 시작한다면 `scripts/setup.ps1`(Windows) 또는 `scripts/setup.sh`(Mac) 실행 여부를 확인합니다. 실행하지 않았다면 먼저 실행할 것을 안내합니다.
+사용자가 처음 시작한다면 Git 저장소와 `.githooks` 등록 여부를 확인합니다. 설정이 안 되어 있으면 사용자에게 터미널 명령을 먼저 시키지 말고 Codex가 `.codex/commands/start.md` 기준으로 초기 설정 스크립트를 실행합니다.
 
 ## 워크스페이스 목적
 

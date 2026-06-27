@@ -18,9 +18,11 @@
 가능한 범위에서 Codex가 직접 확인합니다.
 
 - Git 저장소 여부 (`git rev-parse --is-inside-work-tree`)
-  - Git 저장소가 아니거나 `.githooks`가 등록되지 않은 경우, 초기 설정 스크립트 실행을 안내합니다.
-    - Windows: `.\scripts\setup.ps1`
+  - Git 저장소가 아니거나 `.githooks`가 등록되지 않은 경우, 사용자에게 먼저 시키지 말고 Codex가 초기 설정 스크립트를 실행합니다.
+    - Windows: `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\setup.ps1`
     - Mac/Linux: `bash scripts/setup.sh`
+  - 실행 후 `git rev-parse --is-inside-work-tree`와 `git config core.hooksPath`를 다시 확인합니다.
+  - 실패하면 실패 이유를 짧게 말하고, Git 설치 여부나 권한 문제처럼 사용자가 확인해야 할 다음 행동만 안내합니다.
 - Python 실행 가능 여부 (`.codex/rules/python.md` 기준)
 - `00-inbox/`, `10-projects/`, `20-areas/`, `30-resources/`, `40-archive/`, `scripts/` 폴더 존재 여부
 
