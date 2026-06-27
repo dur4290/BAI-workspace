@@ -94,9 +94,10 @@ bash scripts/setup.sh
 
 `/goodbai`는 학생이 웹사이트 글쓰기 화면에 직접 들어가지 않아도, Codex가 오늘 진행 보고를 정리해 BAI 피드에 올리는 명령입니다.
 
-처음 한 번만 선생님에게 받은 BAI API key를 저장합니다.
+처음 한 번만 선생님에게 받은 BAI API key를 저장합니다. PowerShell에서는 먼저 이 워크스페이스 폴더로 이동한 다음 설정 명령을 실행합니다.
 
 ```powershell
+cd "워크스페이스를 내려받은 폴더 경로"
 python scripts\bai_feed_config.py
 ```
 
@@ -105,6 +106,15 @@ python scripts\bai_feed_config.py
 ```text
 BAI feed name: 본인 이름
 BAI feed API key: 선생님에게 받은 API key
+```
+
+`BAI feed name`은 입력하면 PowerShell 화면에 보입니다. `BAI feed API key`는 비밀번호처럼 숨겨져서 붙여넣어도 화면에 아무 글자도 보이지 않습니다. 그대로 Enter를 누르면 정상 입력됩니다.
+
+이미 잘못된 API key가 저장되어 전송에 실패했다면 기존 설정을 덮어씁니다.
+
+```powershell
+cd "워크스페이스를 내려받은 폴더 경로"
+python scripts\bai_feed_config.py --force
 ```
 
 그다음부터는 Codex에게 이렇게 말하면 됩니다.

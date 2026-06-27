@@ -50,10 +50,11 @@ def main() -> int:
     name = args.name or input("BAI feed name: ").strip()
     password = ""
     api_key = ""
+    print("참고: API key/비밀번호는 PowerShell 화면에 보이지 않습니다. 붙여넣고 Enter를 누르면 입력됩니다.")
     if args.auth == "api-key":
-        api_key = getpass.getpass("BAI feed API key: ").strip()
+        api_key = getpass.getpass("BAI feed API key (화면에 보이지 않습니다): ").strip()
     else:
-        password = getpass.getpass("BAI feed password: ").strip()
+        password = getpass.getpass("BAI feed password (화면에 보이지 않습니다): ").strip()
 
     write_config(path, args.base_url.strip(), name, password, api_key)
     print(f"Saved local config: {path}")

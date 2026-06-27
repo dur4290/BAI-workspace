@@ -27,10 +27,20 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ## BAI 피드 설정
 
-`/goodbai`를 쓰려면 학생이 처음 한 번만 선생님에게 받은 API key를 저장합니다.
+`/goodbai`를 쓰려면 학생이 처음 한 번만 선생님에게 받은 API key를 저장합니다. PowerShell에서는 먼저 워크스페이스 폴더로 이동합니다.
 
 ```powershell
+cd "워크스페이스를 내려받은 폴더 경로"
 python scripts\bai_feed_config.py
+```
+
+`BAI feed name`은 PowerShell 화면에 보입니다. `BAI feed API key`는 비밀번호처럼 숨겨져서 붙여넣어도 보이지 않습니다. 붙여넣고 Enter를 누르면 정상 입력됩니다.
+
+이미 잘못된 값이 저장되어 다시 설정해야 할 때는 기존 설정을 덮어씁니다.
+
+```powershell
+cd "워크스페이스를 내려받은 폴더 경로"
+python scripts\bai_feed_config.py --force
 ```
 
 저장된 `.bai-feed.env`는 Git에 올라가지 않습니다. 여러 워크스페이스를 쓰는 경우 워크스페이스의 `.bai-feed.env`가 사용자 홈의 기본 설정보다 우선합니다.

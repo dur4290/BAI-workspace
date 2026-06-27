@@ -29,14 +29,32 @@
 
 설정이 없어도 여기서 멈추지 말고 먼저 학생 진행 내용을 수집합니다. 설정 안내는 전송 직전 또는 사용자가 전송을 승인한 뒤에만 짧게 보여줍니다.
 
-```bash
-python scripts/bai_feed_config.py
+설정 안내를 보여줄 때는 `python scripts\bai_feed_config.py`만 단독으로 말하지 않습니다. 반드시 현재 워크스페이스의 절대 경로로 먼저 이동하는 명령까지 함께 보여줍니다. 실제 학생에게 답할 때는 `<현재 워크스페이스 절대경로>`를 그대로 쓰지 말고, 지금 열린 워크스페이스의 실제 절대 경로로 바꿉니다.
+
+```powershell
+cd "<현재 워크스페이스 절대경로>"
+python scripts\bai_feed_config.py
+```
+
+이미 잘못된 값이 저장되어 401, invalid credentials, login 실패가 났다면 기존 설정을 덮어써야 하므로 아래처럼 `--force`를 붙입니다.
+
+```powershell
+cd "<현재 워크스페이스 절대경로>"
+python scripts\bai_feed_config.py --force
+```
+
+학생에게 입력값을 안내할 때는 아래 내용을 반드시 포함합니다.
+
+```text
+BAI feed name: 본인 이름을 입력합니다. PowerShell 화면에 글자가 보입니다.
+BAI feed API key: 선생님에게 받은 API key를 붙여넣습니다. PowerShell 화면에는 아무 글자도 보이지 않지만 정상입니다. 붙여넣고 Enter를 누르면 입력됩니다.
 ```
 
 기본 설정은 BAI API key를 저장합니다. 기존 비밀번호 로그인 방식이 꼭 필요할 때만 아래처럼 legacy login 설정을 사용합니다.
 
-```bash
-python scripts/bai_feed_config.py --password
+```powershell
+cd "<현재 워크스페이스 절대경로>"
+python scripts\bai_feed_config.py --password
 ```
 
 ### 2단계: 학생 진행 내용 확인
@@ -137,7 +155,34 @@ python scripts/bai_feed_save.py --input-json .codex/tmp/bai-feed-payload.json --
 
 ```text
 전송하려면 BAI 계정 설정이 필요합니다.
-처음 한 번만 `python scripts/bai_feed_config.py`를 실행하면 됩니다.
+
+PowerShell에서 아래 명령을 그대로 실행하세요.
+
+cd "<현재 워크스페이스 절대경로>"
+python scripts\bai_feed_config.py
+
+입력할 값:
+- BAI feed name: 본인 이름을 입력합니다. 이 값은 PowerShell 화면에 보입니다.
+- BAI feed API key: 선생님에게 받은 API key를 붙여넣습니다. 이 값은 비밀번호처럼 화면에 보이지 않습니다. 붙여넣고 Enter를 누르면 정상 입력됩니다.
+
+설정이 끝나면 여기로 돌아와 `전송해줘`라고 말하면 됩니다.
+```
+
+기존 설정이 틀려서 전송이 실패했으면 아래처럼 안내합니다.
+
+```text
+BAI 피드에 저장된 로그인 정보가 맞지 않아 전송에 실패했습니다.
+
+PowerShell에서 아래 명령을 그대로 실행해 기존 설정을 다시 저장하세요.
+
+cd "<현재 워크스페이스 절대경로>"
+python scripts\bai_feed_config.py --force
+
+입력할 값:
+- BAI feed name: 본인 이름을 입력합니다. 이 값은 PowerShell 화면에 보입니다.
+- BAI feed API key: 선생님에게 받은 API key를 붙여넣습니다. 이 값은 비밀번호처럼 화면에 보이지 않습니다. 붙여넣고 Enter를 누르면 정상 입력됩니다.
+
+설정이 끝나면 여기로 돌아와 `전송해줘`라고 말하면 됩니다.
 ```
 
 ## 주의
