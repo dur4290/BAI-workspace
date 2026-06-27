@@ -12,34 +12,34 @@ $root = Split-Path -Parent $PSScriptRoot
 Set-Location $root
 
 Write-Host ""
-Write-Host "vibe-workspace 초기 설정을 시작합니다." -ForegroundColor Cyan
+Write-Host "Starting vibe-workspace setup." -ForegroundColor Cyan
 Write-Host ""
 
 # [1/2] Git 저장소 확인 및 초기화
-$isGit = git rev-parse --is-inside-work-tree 2>$null
+git rev-parse --is-inside-work-tree *> $null
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "[1/2] Git 저장소를 초기화합니다..." -ForegroundColor Yellow
+    Write-Host "[1/2] Initializing Git repository..." -ForegroundColor Yellow
     git init
     if ($LASTEXITCODE -ne 0) {
-        Write-Host "오류: git init에 실패했습니다. Git이 설치되어 있는지 확인하세요." -ForegroundColor Red
+        Write-Host "Error: git init failed. Please check that Git is installed." -ForegroundColor Red
         exit 1
     }
-    Write-Host "      완료: Git 저장소가 생성됐습니다." -ForegroundColor Green
+    Write-Host "      Done: Git repository created." -ForegroundColor Green
 } else {
-    Write-Host "[1/2] Git 저장소가 이미 있습니다. 건너뜁니다." -ForegroundColor Green
+    Write-Host "[1/2] Git repository already exists. Skipping." -ForegroundColor Green
 }
 
 # [2/2] pre-commit 훅 등록
-Write-Host "[2/2] 보안 훅(.githooks)을 등록합니다..." -ForegroundColor Yellow
+Write-Host "[2/2] Registering security hook (.githooks)..." -ForegroundColor Yellow
 git config core.hooksPath .githooks
 if ($LASTEXITCODE -ne 0) {
-    Write-Host "오류: git config 설정에 실패했습니다." -ForegroundColor Red
+    Write-Host "Error: git config failed." -ForegroundColor Red
     exit 1
 }
-Write-Host "      완료: 커밋 전 API 키 자동 검사가 활성화됐습니다." -ForegroundColor Green
+Write-Host "      Done: pre-commit API key check is enabled." -ForegroundColor Green
 
 Write-Host ""
-Write-Host "설정 완료! 이제 Codex에게 이렇게 말해보세요:" -ForegroundColor Cyan
+Write-Host "Setup complete. Now tell Codex:" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "  /start" -ForegroundColor White
 Write-Host ""
