@@ -1,17 +1,17 @@
-"""여러 메모 파일을 하나의 정리 문서로 합칩니다.
+﻿"""여러 메모 파일을 하나의 정리 문서로 합칩니다.
 
 사용법:
     python scripts/notes-to-summary.py [메모폴더] [출력파일]
 
-인자를 생략하면 notes/ideas/와 output/summary.md를 사용합니다.
+인자를 생략하면 00-inbox/ideas/와 10-projects/summary-output/output/summary.md를 사용합니다.
 """
 import sys
 from pathlib import Path
 
 
 def main():
-    folder = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("notes/ideas")
-    output = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("output/summary.md")
+    folder = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("00-inbox/ideas")
+    output = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("10-projects/summary-output/output/summary.md")
 
     if not folder.exists():
         print(f"폴더를 찾지 못함: {folder}")

@@ -1,10 +1,10 @@
-# /daily — 오늘 작업 기록
+﻿# /daily — 오늘 작업 기록
 
 오늘 한 일, 막힌 점, 다음 액션을 짧게 남깁니다.
 
 ## 저장 위치
 
-`notes/daily/YYYY-MM-DD.md`
+`20-areas/daily/YYYY-MM-DD.md`
 
 같은 날짜 파일이 있으면 아래에 이어 씁니다.
 
@@ -15,8 +15,8 @@
 가능하면 Codex가 직접 확인합니다.
 
 - 최근 Git 변경
-- 오늘 수정한 `work/` 파일
-- 새로 만든 `notes/` 파일
+- 오늘 수정한 `10-projects/` 파일
+- 새로 만든 `00-inbox/`, `20-areas/`, `30-resources/` 파일
 
 ### 2단계: 질문
 

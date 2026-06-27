@@ -1,4 +1,4 @@
-# build-workflow.md — 작업 카드와 첫 결과물 생성 규칙
+﻿# build-workflow.md — 작업 카드와 첫 결과물 생성 규칙
 
 ## 목표
 
@@ -6,16 +6,14 @@
 
 ## 생성 위치
 
-여러 파일로 구성되는 작업은 워크스페이스 루트의 `work/작업이름/`에 만듭니다.
+여러 파일로 구성되는 작업은 워크스페이스 루트의 `10-projects/작업이름/`에 만듭니다.
 
-루트는 `AGENTS.md`, `README.md`, `.codex/`, `work/`가 함께 있는 폴더입니다. 현재 위치가 `work/` 안쪽이거나 다른 하위 폴더여도, 하위 폴더에 새 `work/`를 만들지 않습니다.
+루트는 `AGENTS.md`, `README.md`, `.codex/`, `10-projects/`가 함께 있는 폴더입니다. 현재 위치가 `10-projects/` 안쪽이거나 다른 하위 폴더여도, 하위 폴더에 새 `10-projects/`를 만들지 않습니다.
 
 폴더명은 가능하면 영문 소문자와 하이픈을 사용합니다.
 
 ```text
-work/
-├── _examples/
-│   └── example-kindergarten-dashboard/
+10-projects/
 └── my-first-automation/
     ├── README.md
     ├── src/
@@ -24,7 +22,7 @@ work/
     └── notes/
 ```
 
-`work/_examples/`는 참고 예시 전용입니다. 새 사용자 작업은 `work/` 바로 아래에 만들고, `_examples/` 안에는 만들지 않습니다.
+`30-resources/examples/`는 참고 예시 전용입니다. 새 사용자 작업은 `10-projects/` 바로 아래에 만들고, `30-resources/examples/` 안에는 만들지 않습니다.
 
 ## 작업 카드
 

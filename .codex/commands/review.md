@@ -1,11 +1,11 @@
-# /review — 저장 전 점검
+﻿# /review — 저장 전 점검
 
 작업을 공유하거나 저장하기 전에 완성도, 보안, 재실행 가능성을 확인합니다.
 
 ## 사용법
 
 ```text
-/review work/my-automation
+/review 10-projects/my-automation
 ```
 
 경로가 없으면 어떤 작업을 점검할지 묻습니다.

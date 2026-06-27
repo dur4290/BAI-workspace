@@ -1,4 +1,4 @@
-# Vibe Coding Workspace
+﻿# Vibe Coding Workspace
 
 Codex와 함께 아이디어를 빠르게 만들고, 실행하고, 다듬고, 저장하는 개인 작업 공간입니다.
 
@@ -54,7 +54,7 @@ VSCode에서 이 폴더를 열고 Codex에게 이렇게 말하세요.
 ```text
 아이디어 메모
 -> /build로 작업 카드 만들기
--> 기존 work/에 작업 폴더와 첫 결과물 만들기
+-> 10-projects/에 작업 폴더와 첫 결과물 만들기
 -> 실행하고 확인하기
 -> 기록하기
 -> 저장하기
@@ -72,12 +72,12 @@ VSCode에서 이 폴더를 열고 Codex에게 이렇게 말하세요.
 
 | 요청 | 용도 | 저장 위치 |
 |---|---|---|
-| `/start` | 작업 환경 확인과 첫 작업 제안 | `notes/context/` |
-| `/idea` | 아이디어 빠른 메모 | `notes/ideas/` |
-| `/build` | 아이디어를 작업 카드, 작업 폴더, 첫 결과물로 변환 | `work/` |
-| `/plan` | 구현 없이 작업 카드만 정리 | `notes/tasks/` |
+| `/start` | 작업 환경 확인과 첫 작업 제안 | `20-areas/context/` |
+| `/idea` | 아이디어 빠른 메모 | `00-inbox/ideas/` |
+| `/build` | 아이디어를 작업 카드, 작업 폴더, 첫 결과물로 변환 | `10-projects/` |
+| `/plan` | 구현 없이 작업 카드만 정리 | `00-inbox/plans/` |
 | `/review` | 공유/저장 전 완성도와 보안 점검 | 점검 결과 |
-| `/daily` | 오늘 한 일과 다음 액션 기록 | `notes/daily/` |
+| `/daily` | 오늘 한 일과 다음 액션 기록 | `20-areas/daily/` |
 | `/save` | 보안 확인 후 Git 저장 | Git |
 | `/goodbai` | Codex가 정리한 진행 보고를 BAI 피드에 전송 | BAI 피드 |
 
@@ -133,29 +133,37 @@ Codex가 아래 세 가지를 물어봅니다.
 
 ## 폴더 구조
 
+이 워크스페이스는 PARA를 학생용으로 단순화해서 씁니다.
+
+- `00-inbox/`: 아직 정리 전인 아이디어와 계획
+- `10-projects/`: 지금 만들고 있는 작업
+- `20-areas/`: 계속 관리하는 기록과 맥락
+- `30-resources/`: 보고 따라 할 참고자료와 예시
+- `40-archive/`: 끝난 작업 보관함
+
 ```text
 vibe-workspace/
 ├── README.md
 ├── AGENTS.md                 # Codex 작업 규칙
 ├── recipes.md                # 바로 써먹는 작업 예시
-├── work/                     # 진행 중인 작업
-│   ├── _examples/            # 참고 예시 전용
-│   │   ├── example-contest-filter/          # 공모전 수집·필터·검수 파이프라인
-│   │   ├── example-kindergarten-dashboard/  # 데이터 분석 -> HTML 대시보드
-│   │   └── example-lumoa-html-cards/        # 데이터 결과 -> 카드 UI
-│   └── your-project/         # 새 작업은 work/ 바로 아래에 생성
+├── 00-inbox/                 # 정리 전 아이디어와 계획
+│   ├── ideas/
+│   └── plans/
+├── 10-projects/              # 진행 중인 작업
+│   └── your-project/
+├── 20-areas/                 # 계속 관리하는 기록과 맥락
+│   ├── context/
+│   └── daily/
+├── 30-resources/             # 참고자료, 예시, 보고서
+│   ├── examples/
+│   └── reports/
+├── 40-archive/               # 끝난 작업 보관
 ├── scripts/
 │   ├── setup.ps1             # 초기 설정 (Windows)
 │   ├── setup.sh              # 초기 설정 (Mac/Linux)
 │   ├── bai_feed_config.py    # BAI 피드 로컬 계정 설정
 │   ├── bai_feed_save.py      # BAI 피드 dry-run/전송
 │   └── find-python.ps1       # Python 경로 탐색
-├── notes/
-│   ├── context/              # 작업 맥락
-│   ├── ideas/                # 아이디어 메모
-│   ├── tasks/                # 구현 없는 작업 카드
-│   ├── daily/                # 작업 기록
-│   └── reports/              # 조사와 정리 문서
 ├── .vscode/
 │   └── extensions.json       # 추천 VSCode 익스텐션
 └── .codex/
@@ -195,7 +203,7 @@ vibe-workspace/
 작업은 기본적으로 아래 구조로 만들어집니다.
 
 ```text
-work/작업이름/
+10-projects/작업이름/
 ├── README.md
 ├── src/
 ├── input/
@@ -203,7 +211,7 @@ work/작업이름/
 └── notes/
 ```
 
-현재 위치가 하위 폴더여도 새 `work/`를 만들지 말고, 워크스페이스 루트에 이미 있는 `work/`를 사용합니다. `work/_examples/`는 참고용이라 새 작업을 넣지 않습니다.
+현재 위치가 하위 폴더여도 새 `10-projects/`를 만들지 말고, 워크스페이스 루트에 이미 있는 `10-projects/`를 사용합니다. `30-resources/examples/`는 참고용이라 새 작업을 넣지 않습니다.
 
 처음부터 배포, 로그인, 외부 API를 기본으로 잡지 않습니다. 먼저 로컬 파일, Markdown, Python, CSV, HTML처럼 바로 확인 가능한 결과물로 시작합니다.
 

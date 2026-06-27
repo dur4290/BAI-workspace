@@ -1,4 +1,4 @@
-# example-contest-filter
+﻿# example-contest-filter
 
 ## 한 줄 목표
 
@@ -28,7 +28,7 @@
 
 ## 실행 방법
 
-현재 폴더가 `work/_examples/example-contest-filter/`라면:
+현재 폴더가 `30-resources/examples/example-contest-filter/`라면:
 
 ```powershell
 python src/main.py
@@ -37,13 +37,13 @@ python src/main.py
 워크스페이스 루트라면:
 
 ```powershell
-python work/_examples/example-contest-filter/src/main.py
+python 30-resources/examples/example-contest-filter/src/main.py
 ```
 
 Notion 확장 구조만 확인하려면:
 
 ```powershell
-python work/_examples/example-contest-filter/src/notion_upload_stub.py
+python 30-resources/examples/example-contest-filter/src/notion_upload_stub.py
 ```
 
 ## 확인 방법
@@ -56,7 +56,7 @@ python work/_examples/example-contest-filter/src/notion_upload_stub.py
 ## Codex에게 다음에 요청할 말
 
 ```text
-work/_examples/example-contest-filter/output/review_queue.md를 읽고, 공모전 후보를 유지/보류/제외로 검수해줘. 판단 근거가 부족한 항목은 추가 확인 질문으로 남겨줘.
+30-resources/examples/example-contest-filter/output/review_queue.md를 읽고, 공모전 후보를 유지/보류/제외로 검수해줘. 판단 근거가 부족한 항목은 추가 확인 질문으로 남겨줘.
 ```
 
 ## 메모

@@ -1,4 +1,4 @@
-# /start — 워크스페이스 시작
+﻿# /start — 워크스페이스 시작
 
 처음 열었을 때 현재 작업 환경을 확인하고 바로 시작할 작은 작업을 제안합니다.
 
@@ -11,7 +11,7 @@
 1. `AGENTS.md`
 2. `README.md`
 3. `recipes.md`
-4. `notes/context/workspace-profile.md`
+4. `20-areas/context/workspace-profile.md`
 
 ### 2단계: 환경 확인
 
@@ -22,7 +22,7 @@
     - Windows: `.\scripts\setup.ps1`
     - Mac/Linux: `bash scripts/setup.sh`
 - Python 실행 가능 여부 (`.codex/rules/python.md` 기준)
-- `work/`, `scripts/`, `notes/` 폴더 존재 여부
+- `00-inbox/`, `10-projects/`, `20-areas/`, `30-resources/`, `40-archive/`, `scripts/` 폴더 존재 여부
 
 사용자에게 터미널 명령을 먼저 시키지 않습니다.
 
@@ -54,7 +54,7 @@ Q4/4 — 지금 쓸 수 있는 시간은 어느 정도인가요?
 
 ### 4단계: 작업 맥락 저장
 
-계속 유용한 선호나 반복 설명은 `notes/context/workspace-profile.md`에 반영합니다.
+계속 유용한 선호나 반복 설명은 `20-areas/context/workspace-profile.md`에 반영합니다.
 
 민감한 계정, 이메일, 토큰, 비밀번호는 기록하지 않습니다.
 

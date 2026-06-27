@@ -1,4 +1,4 @@
-# scripts
+﻿# scripts
 
 완성된 단일 자동화 스크립트와 워크스페이스 초기 설정 스크립트가 저장되는 폴더입니다.
 
@@ -42,13 +42,13 @@ python scripts\bai_feed_config.py
 | 파일 | 용도 | 기본 입력 | 결과 |
 |---|---|---|---|
 | `download-organize.py` | 다운로드 폴더 파일을 종류별로 분류 | `~/Downloads` | 분류된 하위 폴더 생성 |
-| `notes-to-summary.py` | 여러 마크다운 메모를 하나로 합침 | `notes/ideas/` | `output/summary.md` |
+| `notes-to-summary.py` | 여러 마크다운 메모를 하나로 합침 | `00-inbox/ideas/` | `10-projects/summary-output/output/summary.md` |
 | `file-rename-dated.py` | 파일명 앞에 오늘 날짜 일괄 추가 | 현재 폴더 | 같은 폴더에서 in-place |
 
 실행 방법은 각 파일 상단 docstring을 참고합니다.
 
 ## 내 자동화 스크립트
 
-여러 파일로 된 작업은 `work/` 폴더에, 한 파일로 완성되는 스크립트는 이 폴더에 저장합니다.
+여러 파일로 된 작업은 `10-projects/` 폴더에, 한 파일로 완성되는 스크립트는 이 폴더에 저장합니다.
 
 예: `organize-downloads.py`, `rename-files.py`

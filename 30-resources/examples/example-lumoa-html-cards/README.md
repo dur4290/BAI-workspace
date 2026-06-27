@@ -1,4 +1,4 @@
-# example-lumoa-html-cards
+﻿# example-lumoa-html-cards
 
 ## 한 줄 목표
 
@@ -28,7 +28,7 @@
 
 ## 실행 방법
 
-현재 폴더가 `work/_examples/example-lumoa-html-cards/`라면:
+현재 폴더가 `30-resources/examples/example-lumoa-html-cards/`라면:
 
 ```powershell
 python src/build_cards.py
@@ -37,7 +37,7 @@ python src/build_cards.py
 워크스페이스 루트라면:
 
 ```powershell
-python work/_examples/example-lumoa-html-cards/src/build_cards.py
+python 30-resources/examples/example-lumoa-html-cards/src/build_cards.py
 ```
 
 ## 확인 방법
@@ -49,7 +49,7 @@ python work/_examples/example-lumoa-html-cards/src/build_cards.py
 ## Codex에게 다음에 요청할 말
 
 ```text
-work/_examples/example-lumoa-html-cards/output/lumoa-cards.html을 보고, 데이터 결과를 더 신뢰감 있게 보여주는 카드 UI 개선안을 제안해줘. 단, 외부 호출 없이 정적 HTML 기준으로 말해줘.
+30-resources/examples/example-lumoa-html-cards/output/lumoa-cards.html을 보고, 데이터 결과를 더 신뢰감 있게 보여주는 카드 UI 개선안을 제안해줘. 단, 외부 호출 없이 정적 HTML 기준으로 말해줘.
 ```
 
 ## 메모

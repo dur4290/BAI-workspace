@@ -1,4 +1,4 @@
-# /save — 작업 저장 전 점검
+﻿# /save — 작업 저장 전 점검
 
 오늘 작업을 저장하기 전 변경 범위와 보안을 확인합니다.
 
@@ -18,7 +18,7 @@ git rev-parse --is-inside-work-tree
 아직 Git 저장소로 연결되어 있지 않아요.
 
 선택할 수 있는 방법:
-1. 오늘 기록만 `notes/daily/`에 남기기
+1. 오늘 기록만 `20-areas/daily/`에 남기기
 2. 이 폴더에서 Git을 시작하기
 3. GitHub 저장소를 만든 뒤 연결하기
 
@@ -67,7 +67,7 @@ git diff --stat
 docs: 오늘 작업 기록 정리
 
 변경 파일:
-- notes/daily/YYYY-MM-DD.md
+- 20-areas/daily/YYYY-MM-DD.md
 ```
 
 사용자 확인 전에는 `git add`, `git commit`, `git push`를 실행하지 않습니다.
